@@ -1,0 +1,248 @@
+body{
+  color: #ffffff;
+  background-color: black ;
+}
+
+div.layer1{
+  width:90%;
+  height: 90%;
+  margin: 0 auto;
+}
+
+
+
+
+.planet{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+#sun{
+  background-color: yellow;
+  height: 100px;
+  width: 100px;
+  box-shadow: 0 0 50px yellow;
+  margin-top: -50px;
+  margin-left: -50px;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  background-image: -moz-radial-gradient(45px 45px 45deg, circle cover, yellow 0%, orange 100%, red 95%);
+  background-image: -webkit-radial-gradient(45px 45px, circle cover, yellow, orange);
+  background-image: radial-gradient(45px 45px 45deg, circle cover, yellow 0%, orange 100%, red 95%);
+}
+
+
+#filfil{
+  transform-origin: 300px 300px;
+  margin-left: -300px;
+  margin-top: -300px;
+
+  top: 55%;
+  left: 55%;
+  animation: orbitRight 8.5s linear infinite;
+  background: white;
+}
+#ga{
+  transform-origin: 150px 150px;
+  margin-left: -150px;
+  margin-top: -150px;
+  animation: orbitRight 4.5s linear infinite;
+}
+#gsdo{
+  transform-origin: 150px 150px;
+  margin-left: -150px;
+  margin-top: -150px;
+  animation: orbitRight 6s linear infinite;
+}
+#nols{
+  height: 100px;
+  width: 100px;
+  transform-origin: 450px 450px;
+  margin-left: -450px;
+  margin-top: -450px;
+  animation: orbitRight 13s linear infinite;
+}
+
+#information{
+  position: relative;
+  top: 20%;
+  left: 0%;
+  width: 100%;
+}
+
+.blurb{
+  position: relative;
+  left: 30%;
+  top: 50px;
+  width: 40%;
+  height: 100%;
+  justify-content: center;
+  background: rgba(255,255,255, 0.8);
+  border-radius: 15px;
+}
+
+div.blurb div.verbage{
+  padding: 20px;
+  font-size: 25px;
+  color: black;
+  justify-content: center;
+  font-weight: 500;
+}
+
+div.verbage .head{
+  font-weight: 700;
+  font-size: 1.2em;
+}
+div.verbage .desc{
+  margin: 30px;
+}
+
+
+
+@keyframes orbitRight {
+  100%{
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+  }
+}
+@keyframes orbitLeft {
+  100%{
+    transform: rotate(-360deg);
+    -webkit-transform: rotate(-360deg);
+    -moz-transform: rotate(-360deg);
+    -o-transform: rotate(-360deg);
+  }
+}
+
+
+/*#mercury{
+  background-color: maroon;
+  width: 10px;
+  height: 10px;
+  margin-left: -75px;
+  margin-top: -75px;
+  animation: orbitRight 2s linear infinite;
+  transform-origin: 75px 75px;
+}
+
+#venus{
+  width: 17px
+  height: 17px;
+  margin-top: -110px ;
+  margin-left: -110px;
+  background-color: #99d;
+  transform-origin: -110px -110px;
+  animation: orbitRight 3s linear infinite;
+}*/
+
+/*
+#earth{
+  width: 22px;
+  height: 22px;
+  margin-top: 100px;
+  margin-left: 100px;
+  background-color:  green ;
+  transform-origin: -100px -100px;
+  animation: orbitRight 4.2s linear infinite;
+  box-shadow: 20px 8px 50px black;
+
+}
+
+#moon{
+  width: 10px;
+  height: 10px;
+  margin-top: 20px;
+  margin-left: 20px;
+  background-color: red;
+  transform-origin: -20px -20px;
+  animation: orbitLeft 1.5s linear infinite;
+
+}
+
+#mars{
+  width: 29px;
+  height: 29px;
+  margin-top: -90px;
+  margin-left: -90px;
+  background-color: red;
+  transform-origin: 100px 100px;
+  animation: orbitRight 4.8s linear infinite;
+
+}
+
+#saturn{
+  width: 34px;
+  height: 34px;
+  margin-top: 80px;
+  margin-left: 80px;
+  background-color: ruby;
+  transform-origin: -80px -80px;
+  animation: orbitRight 4.5s linear infinite;
+
+}
+
+#jupiter{
+  width: 37px;
+  height: 37px;
+  margin-top: 125px;
+  margin-left: 100px;
+  background-color: orange;
+  transform-origin: -100px -100px;
+  animation: orbitRight 5.4s linear infinite;
+
+}
+
+
+#uranus{
+  width: 48px;
+  height: 47px;
+  margin-top: 150px;
+  margin-left: 150px;
+  background-color: white;
+  transform-origin: -150px -150px;
+  animation: orbitRight 6.2s linear infinite;
+
+}
+
+
+#neptune{
+  width: 50px;
+  height: 50px;
+  margin-top: 200px;
+  margin-left: 200px;
+  background-color: indigo;
+  transform-origin: -200px -200px;
+  animation: orbitRight 7.5s linear infinite;
+
+}
+
+#comet{
+  animation: streaking 0.8s ease-in infinite;
+  position: relative;
+  border-radius: 50%
+}
+
+@keyframes streaking{
+  0%{
+    opacity: 0.1;
+  }25%{
+    opacity: 0.4;
+    color: silver;
+  }
+  75%{
+    opacity: 1;
+    color: white;
+    box-shadow: 0 0 35px white;
+  }
+  100%{
+
+
+  }*/
+}
