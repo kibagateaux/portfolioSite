@@ -13,7 +13,7 @@ $(document).ready(function(){
 
   const info = {
     filfil:{
-      head:"Brand Strategist /n & /nExecutive Account Manager",
+      head:"Brand Strategist & Executive Account Manager",
       time: "Septmeber 2014 - October 2016",
       desc: `Coming out of school I wanted to gain more experience in startups and business strategy.
              As their first employee I was initiated with caution. My responsibilites grew as we grew as a team and a company
@@ -30,7 +30,7 @@ $(document).ready(function(){
              There are many reasons why I chose this route but the most salient is that
              I am an entrepreneur so I want to build my own products which is what GA focuses on, doing not talking.
              Every day is an opportunity to delve further into your passions and GA exemplifies this with their interactive curriculum and exuberant teachers.
-             /n
+
              Every week we studied a new technology and built an app surrounding it. My favorites were React and
              Ruby on Rails for how complex yet elegant they operate and the time they free up to finesse more interesting aspects of a project.`,
       skills:[nodejs, postgres, react, ruby, RubyonRails]
@@ -81,7 +81,9 @@ const addTech = function(obj){
                           <span class="time"> ${obj.time} </span>
                         </h4>`);
   $('.verbage').append(`<p class="desc"> ${obj.desc} </p>`)
-  $('.blurb').append('<div class="close"> X </div>')
+  $('.blurb').append(`<button class="close">
+                        X
+                      </button>`)
 
 
   obj.skills.forEach(function(skill){
@@ -100,11 +102,14 @@ const addDesign = (obj) => {
   $('.blurb').append('<div class="verbage"> <div>');
   $('.blurb').append('<div class="skills"> </div>')
   $('.verbage').append(`<h4 class="head"> ${obj.head}
+
                   <span class="time"> ${obj.time} </span>
 
                </h4>`);
   $('.verbage').append(`<p class="desc"> ${obj.desc} </p>`)
-  $('.head').append('<div class="close"> X </div>')
+  $('.blurb').append(`<button class="close">
+                        X
+                      </button>`)
   $('.verbage').append('<div class="skills"> </div>');
 
   obj.skills.forEach(function(skill){
@@ -119,10 +124,11 @@ const addDesign = (obj) => {
   });
 };
 
+
 $('.planet').on('click',function(event) {
-    // event.preventDefault();
-    // blurb.remove();
-    // console.log("planet clicked");
+    event.preventDefault();
+    blurb.remove();
+    console.log("planet clicked");
 
 //   // Remove any old one
 //   // $(".ripple").remove();
