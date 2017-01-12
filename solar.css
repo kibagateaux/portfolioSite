@@ -9,16 +9,13 @@ div.layer1{
   margin: 0 auto;
 }
 
-
-
-
 .planet{
   position: absolute;
   top: 50%;
   left: 50%;
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
 }
 
 #sun{
@@ -41,7 +38,6 @@ div.layer1{
   transform-origin: 300px 300px;
   margin-left: -300px;
   margin-top: -300px;
-
   top: 55%;
   left: 55%;
   animation: orbitRight 8.5s linear infinite;
@@ -60,12 +56,17 @@ div.layer1{
   animation: orbitRight 6s linear infinite;
 }
 #nols{
-  height: 100px;
-  width: 100px;
   transform-origin: 450px 450px;
   margin-left: -450px;
   margin-top: -450px;
   animation: orbitRight 13s linear infinite;
+}
+#aboutme{
+  width: 75px;
+  transform-origin: 200px 200px;
+  margin-left: -200px;
+  margin-top: -200px;
+  animation: orbitRight 4s linear infinite;
 }
 
 #information{
@@ -75,11 +76,20 @@ div.layer1{
   width: 100%;
 }
 
+
+.close{
+  color: white;
+  font: 20px serif;
+  cursor: pointer;
+  float: right;
+  margin: 20px 50px auto;
+  z-index: 2;
+}
 .blurb{
   position: relative;
-  left: 30%;
+  left: 17.5%;
   top: 50px;
-  width: 40%;
+  width: 60%;
   height: 100%;
   justify-content: center;
   background: rgba(255,255,255, 0.8);
@@ -88,7 +98,7 @@ div.layer1{
 
 div.blurb div.verbage{
   padding: 20px;
-  font-size: 25px;
+  font-size: 100%;
   color: black;
   justify-content: center;
   font-weight: 500;
@@ -102,7 +112,10 @@ div.verbage .desc{
   margin: 30px;
 }
 
-
+img.skill{
+  height: 100px;
+  width: 100px;
+}
 
 @keyframes orbitRight {
   100%{
@@ -121,107 +134,26 @@ div.verbage .desc{
   }
 }
 
+// .ripple {
+//   width: 0;
+//   height: 0;
+//   border-radius: 50%;
+//   background: rgba(255, 255, 255, 0.4);
+//   transform: scale(0);
+//   position: absolute;
+//   opacity: 1;
+// }
+// .rippleEffect {
+//     animation: rippleDrop .6s linear;
+// }
 
-/*#mercury{
-  background-color: maroon;
-  width: 10px;
-  height: 10px;
-  margin-left: -75px;
-  margin-top: -75px;
-  animation: orbitRight 2s linear infinite;
-  transform-origin: 75px 75px;
-}
+// @keyframes rippleDrop {
+//   100% {
+//     transform: scale(2);
+//     opacity: 0;
+//   }
+// }
 
-#venus{
-  width: 17px
-  height: 17px;
-  margin-top: -110px ;
-  margin-left: -110px;
-  background-color: #99d;
-  transform-origin: -110px -110px;
-  animation: orbitRight 3s linear infinite;
-}*/
-
-/*
-#earth{
-  width: 22px;
-  height: 22px;
-  margin-top: 100px;
-  margin-left: 100px;
-  background-color:  green ;
-  transform-origin: -100px -100px;
-  animation: orbitRight 4.2s linear infinite;
-  box-shadow: 20px 8px 50px black;
-
-}
-
-#moon{
-  width: 10px;
-  height: 10px;
-  margin-top: 20px;
-  margin-left: 20px;
-  background-color: red;
-  transform-origin: -20px -20px;
-  animation: orbitLeft 1.5s linear infinite;
-
-}
-
-#mars{
-  width: 29px;
-  height: 29px;
-  margin-top: -90px;
-  margin-left: -90px;
-  background-color: red;
-  transform-origin: 100px 100px;
-  animation: orbitRight 4.8s linear infinite;
-
-}
-
-#saturn{
-  width: 34px;
-  height: 34px;
-  margin-top: 80px;
-  margin-left: 80px;
-  background-color: ruby;
-  transform-origin: -80px -80px;
-  animation: orbitRight 4.5s linear infinite;
-
-}
-
-#jupiter{
-  width: 37px;
-  height: 37px;
-  margin-top: 125px;
-  margin-left: 100px;
-  background-color: orange;
-  transform-origin: -100px -100px;
-  animation: orbitRight 5.4s linear infinite;
-
-}
-
-
-#uranus{
-  width: 48px;
-  height: 47px;
-  margin-top: 150px;
-  margin-left: 150px;
-  background-color: white;
-  transform-origin: -150px -150px;
-  animation: orbitRight 6.2s linear infinite;
-
-}
-
-
-#neptune{
-  width: 50px;
-  height: 50px;
-  margin-top: 200px;
-  margin-left: 200px;
-  background-color: indigo;
-  transform-origin: -200px -200px;
-  animation: orbitRight 7.5s linear infinite;
-
-}
 
 #comet{
   animation: streaking 0.8s ease-in infinite;
@@ -244,5 +176,6 @@ div.verbage .desc{
   100%{
 
 
-  }*/
+  }
+ /* http://stackoverflow.com/questions/30074246/how-to-create-ripple-effect-on-click-material-design */
 }
