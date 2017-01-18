@@ -1,10 +1,13 @@
 body{
-  color: #ffffff;
-  background-image: ;
-  background-color: black ;
+  background-color: black;
+  background: url("./images/planets/background.jpg");
 }
-
-
+// #body{
+//   position: absolute;
+//   background-color: transparent;
+//   background: url("./images/space/trippy-sauron.jpg") repeat-y;
+//   transform: rotateX(180deg);
+// }
 .planet{
   position: absolute;
   top: 50%;
@@ -15,7 +18,6 @@ body{
 }
 
 #sun{
-  background-color: yellow;
   height: 100px;
   width: 100px;
   box-shadow: 0 0 50px yellow;
@@ -24,9 +26,9 @@ body{
   top: 50%;
   left: 50%;
   position: absolute;
-  background-image: -moz-radial-gradient(45px 45px 45deg, circle cover, yellow 0%, orange 100%, red 95%);
-  background-image: -webkit-radial-gradient(45px 45px, circle cover, yellow, orange);
-  background-image: radial-gradient(45px 45px 45deg, circle cover, yellow 0%, orange 100%, red 95%);
+  background: -moz-radial-gradient(45px 45px 45deg, circle cover, yellow 0%, orange 100%, red 95%);
+  background: -webkit-radial-gradient(45px 45px, circle cover, yellow, orange);
+  background: radial-gradient(45px 45px 45deg, circle cover, yellow 0%, orange 100%, red 95%);
 }
 
 
@@ -52,10 +54,10 @@ body{
   animation: orbitRight 6s linear infinite;
 }
 #nols{
-  transform-origin: 450px 450px;
-  margin-left: -450px;
-  margin-top: -450px;
-  animation: orbitRight 13s linear infinite;
+  transform-origin: 250px 250px;
+  margin-left: -250px;
+  margin-top: -250px;
+  animation: orbitLeft 13s linear infinite;
 }
 #aboutme{
   width: 75px;
@@ -72,15 +74,12 @@ body{
   width: 100%;
 }
 
-
 .close{
   color: black;
-  box-shadow: 0 0 20px black;
-  border: 2px red solid;
-  border-style: groove solid;
+  // box-shadow: 0 0 20px black;
+  border-style: none;
   height: 30px;
   width: 30px;
-  border-radius: 50%;
   font: 20px serif;
   cursor: pointer;
   position: absolute;
@@ -88,9 +87,7 @@ body{
   left: 85%;
   margin: 0px 40px;
 }
-.x{
-  text-align: center;
-}
+
 .blurb{
   position: relative;
   left: 17.5%;

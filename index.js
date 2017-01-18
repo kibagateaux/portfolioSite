@@ -1,5 +1,13 @@
 $(document).ready(function(){
 
+  const backgroundImages = [
+      './images/space/galaxy.png',
+      './images/space/space-uterus.jpeg',
+      './images/space/space.jpeg',
+      './images/space/blurbablubadoongonk.jpeg',
+      './images/space/trippy-sauron.jpg'
+  ];
+
   console.log("script loaded");
   const skillImages = [
                         "./images/skills/nodejs.jpg",
@@ -81,9 +89,7 @@ const addTech = function(obj){
                           <span class="time"> ${obj.time} </span>
                         </h4>`);
   $('.verbage').append(`<p class="desc"> ${obj.desc} </p>`)
-  $('.blurb').append(`<button class="close">
-                        X
-                      </button>`)
+  $('.blurb').append(`<img src="./images/skills/close.svg"class="close"/>`)
 
 
   obj.skills.forEach(function(skill){
@@ -107,9 +113,7 @@ const addDesign = (obj) => {
 
                </h4>`);
   $('.verbage').append(`<p class="desc"> ${obj.desc} </p>`)
-  $('.blurb').append(`<button class="close">
-                        X
-                      </button>`)
+  $('.blurb').append(`<img src="./images/skills/close.svg"class="close"/>`)
   $('.verbage').append('<div class="skills"> </div>');
 
   obj.skills.forEach(function(skill){
