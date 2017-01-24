@@ -129,43 +129,42 @@ const addDesign = (obj) => {
 };
 
 
-$('.planet').on('click',function(event) {
+$('#sun').on('click',function(e) {
     event.preventDefault();
-    blurb.remove();
-    console.log("planet clicked");
 
-//   // Remove any old one
-//   // $(".ripple").remove();
+  // Remove any old one
+  $(".ripple").remove();
 
-//   // Setup
-//   var posX = $(this).offset().left,
-//       posY = $(this).offset().top,
-//       buttonWidth = $(this).width(),
-//       buttonHeight =  $(this).height();
+  // Setup
+  var posX = $(this).offset().left,
+      posY = $(this).offset().top,
+      elementWidth = $(this).width(),
+      elementHeight =  $(this).height();
+
+  console.log("this in #sun click function")
+  console.log(this)
+  // Add the element
+  $(this).prepend("<span class='ripple'></span>");
+
+ // Make it round!
+  if(elementWidth >= elementHeight) {
+    elementHeight = elementWidth;
+  } else {
+    elementWidth = elementHeight;
+  }
+
+  // Get the center of the element
+  var x = e.pageX - posX - elementWidth / 2;
+  var y = e.pageY - posY - elementHeight / 2;
 
 
-
-
-//  // Make it round!
-//   if(buttonWidth >= buttonHeight) {
-//     buttonHeight = buttonWidth;
-//   } else {
-//     buttonWidth = buttonHeight;
-//   }
-
-//   // Get the center of the element
-//   var x = e.pageX - posX - buttonWidth / 2;
-//   var y = e.pageY - posY - buttonHeight / 2;
-
-//   // Add the element
-//   $(this).prepend("<span class='ripple'></span>");
-//   // Add the ripples CSS and start the animation
-//   $(".ripple").css({
-//     width: buttonWidth,
-//     height: buttonHeight,
-//     top: y + 'px',
-//     left: x + 'px'
-//   }).addClass("rippleEffect");
+  // Add the ripples CSS and start the animation
+  $(".ripple").css({
+    width: elementWidth,
+    height: elementHeight,
+    top: y + 'px',
+    left: x + 'px'
+  }).addClass("rippleEffect");
 });
 
 
