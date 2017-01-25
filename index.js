@@ -14,9 +14,11 @@ $(document).ready(function(){
                         "./images/skills/postgres.png",
                         "./images/skills/react.png",
                         "./images/skills/ruby.png",
-                        "./images/skills/RubyonRails.png"
+                        "./images/skills/RubyonRails.png",
+                        "./images/skills/reactNative.png",
+                        "./images/skills/materialUI.png",
                       ]
-  const [nodejs, postgres, react, ruby, RubyonRails] = skillImages
+  const [nodejs, postgres, react, ruby, RubyonRails, native, materialUI] = skillImages
 
 
   const info = {
@@ -38,10 +40,10 @@ $(document).ready(function(){
              There are many reasons why I chose this route but the most salient is that
              I am an entrepreneur so I want to build my own products which is what GA focuses on, doing not talking.
              Every day is an opportunity to delve further into your passions and GA exemplifies this with their interactive curriculum and exuberant teachers.
-
+             <br> <br>
              Every week we studied a new technology and built an app surrounding it. My favorites were React and
              Ruby on Rails for how complex yet elegant they operate and the time they free up to finesse more interesting aspects of a project.`,
-      skills:[nodejs, postgres, react, ruby, RubyonRails]
+      skills:[nodejs, postgres, react, ruby, RubyonRails, native, materialUI]
     },
     gsdo:{
       head:"Strategy Design Intern",
@@ -78,18 +80,41 @@ $(document).ready(function(){
                    $('.schminop'),
                    $('.aboutme'),
                    $('.close')];
- const [blurb, filfil, ga, gsdo, nols, schminop, aboutme, close] = classes;
+const [blurb, filfil, ga, gsdo, nols, schminop, aboutme, close] = classes;
 
-const addTech = function(obj){
+//find current location of click
+//transitional popup from position to center
+//setTimeout for blurb func when transition complete
+
+const createBlurb = (event, object) => {
+   let posX = $(this).offset().left,
+       posY = $(this).offset().top,
+       x = e.pageX - posX - buttonWidth / 2,
+       y = e.pageY - posY - buttonHeight / 2;
+
+  $('body').append('<div class="blurb"> </div>')
+  .css({
+    top: x,
+    left: y
+  })
+  $(".ripple").css({
+    width: buttonWidth,
+    height: buttonHeight,
+    top: y + 'px',
+    left: x + 'px'
+  }).addClass("rippleEffect");
+}
+
+const addTech = (event, obj) => {
   $('body').append('<div class="blurb"> </div>');
   $('.blurb').append('<div class="verbage"> <div>');
-   $('.blurb').append('<div class="skills"> </div>')
+  $('.blurb').append('<div class="skills"> </div>')
   $('.verbage').append(`<h4 class="head">
                           ${obj.head}
                           <span class="time"> ${obj.time} </span>
                         </h4>`);
   $('.verbage').append(`<p class="desc"> ${obj.desc} </p>`)
-  $('.blurb').append(`<img src="./images/skills/close.svg"class="close"/>`)
+  $('.blurb').append(`<img src="./images/skills/whiteX.png"class="close"/>`)
 
 
   obj.skills.forEach(function(skill){
@@ -103,7 +128,7 @@ const addTech = function(obj){
   });
 };
 
-const addDesign = (obj) => {
+const addDesign = (event, obj) => {
   $('body').append('<div class="blurb"> </div>');
   $('.blurb').append('<div class="verbage"> <div>');
   $('.blurb').append('<div class="skills"> </div>')
@@ -113,7 +138,7 @@ const addDesign = (obj) => {
 
                </h4>`);
   $('.verbage').append(`<p class="desc"> ${obj.desc} </p>`)
-  $('.blurb').append(`<img src="./images/skills/close.svg"class="close"/>`)
+  $('.blurb').append(`<img src="./images/skills/whiteX.png"class="close"/>`)
   $('.verbage').append('<div class="skills"> </div>');
 
   obj.skills.forEach(function(skill){
@@ -129,62 +154,65 @@ const addDesign = (obj) => {
 };
 
 
-$('#sun').on('click',function(e) {
-    event.preventDefault();
+$("div").click(function (e) {
 
   // Remove any old one
   $(".ripple").remove();
 
   // Setup
-  var posX = $(this).offset().left,
+  let posX = $(this).offset().left,
       posY = $(this).offset().top,
-      elementWidth = $(this).width(),
-      elementHeight =  $(this).height();
+      buttonWidth = $(this).width(),
+      buttonHeight =  $(this).height();
 
-  console.log("this in #sun click function")
-  console.log(this)
   // Add the element
   $(this).prepend("<span class='ripple'></span>");
 
+
  // Make it round!
-  if(elementWidth >= elementHeight) {
-    elementHeight = elementWidth;
+  if(buttonWidth >= buttonHeight) {
+    buttonHeight = buttonWidth;
   } else {
-    elementWidth = elementHeight;
+    buttonWidth = buttonHeight;
   }
 
   // Get the center of the element
-  var x = e.pageX - posX - elementWidth / 2;
-  var y = e.pageY - posY - elementHeight / 2;
+  let x = e.pageX - posX - buttonWidth / 2;
+  let y = e.pageY - posY - buttonHeight / 2;
 
 
   // Add the ripples CSS and start the animation
   $(".ripple").css({
-    width: elementWidth,
-    height: elementHeight,
+    width: buttonWidth,
+    height: buttonHeight,
     top: y + 'px',
     left: x + 'px'
   }).addClass("rippleEffect");
 });
 
 
-$('#filfil').on('click', function(e){
-  addDesign(info.filfil)
+$('#filfil').on('click', function(event){
+  $('.blurb').remove();
+  addDesign(event, info.filfil)
   console.log("filfil showing");
 });
-$('#ga').on('click', function(e){
-  addTech(info.ga)
+$('#ga').on('click', function(event){
+  $('.blurb').remove();
+  addTech(event, info.ga)
   console.log("ga showing");
 });
-$('#gsdo').on('click', function(e){
-  addDesign(info.gsdo);
+$('#gsdo').on('click', function(event){
+  $('.blurb').remove();
+  addDesign(event, info.gsdo);
   console.log("gsdo showing");
 });
-$('#nols').on('click', function(e){
-  addDesign(info.nols)
+$('#nols').on('click', function(event){
+  $('.blurb').remove();
+  addDesign(event, info.nols)
   console.log("nols showing");
 });
-$('#aboutme').on('click', function(e){
+$('#aboutme').on('click', function(event){
+  $('.blurb').remove();
   aboutme.show();
   console.log("aboutme showing");
 });

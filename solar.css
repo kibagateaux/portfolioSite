@@ -59,7 +59,7 @@ body{
   transform-origin: 200px 200px;
   margin-left: -200px;
   margin-top: -200px;
-  animation: orbitRight 4s linear infinite;
+  animation: orbitLeft 4s linear infinite;
 }
 
 #information{
@@ -90,16 +90,19 @@ body{
   width: 60%;
   height: 100%;
   justify-content: center;
-  background: rgba(255,255,255, 0.8);
+  background: rgba(22,22,22, 0.8);
   border-radius: 15px;
+  overflow: auto;
 }
+
 .time{
   font-size: 80%;
 }
+
 div.blurb div.verbage{
   padding: 20px;
   font-size: 100%;
-  color: black;
+  color: white;
   justify-content: center;
   text-align: left;
   font-weight: 500;
@@ -108,6 +111,7 @@ div.blurb div.verbage{
 div.verbage .head{
   font-weight: 700;
   font-size: 1.2em;
+  margin-left: 30px;
 }
 div.verbage .desc{
   margin: 30px;
@@ -147,8 +151,8 @@ img.skill{
   opacity: 1;
 }
 .rippleEffect {
-    animation: rippleDrop 0.5s linear;
-  }
+    animation: rippleDrop .6s linear;
+}
 
 @keyframes rippleDrop {
   100% {
