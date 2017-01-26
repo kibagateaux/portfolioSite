@@ -84,28 +84,31 @@ const [blurb, filfil, ga, gsdo, nols, schminop, aboutme, close] = classes;
 
 //find current location of click
 //transitional popup from position to center
-//setTimeout for blurb func when transition complete
+//setTimeout for blurb func when transition complete from planet click function
 
-const createBlurb = (event, object) => {
-   let posX = $(this).offset().left,
-       posY = $(this).offset().top,
-       x = e.pageX - posX - buttonWidth / 2,
-       y = e.pageY - posY - buttonHeight / 2;
+// const createBlurb = (event) => {
+//    let posX = $(this).offset().left,
+//        posY = $(this).offset().top,
+//        x = event.pageX - posX/ 2,
+//        y = event.pageY - posY/ 2;
 
-  $('body').append('<div class="blurb"> </div>')
-  .css({
-    top: x,
-    left: y
-  })
-  $(".ripple").css({
-    width: buttonWidth,
-    height: buttonHeight,
-    top: y + 'px',
-    left: x + 'px'
-  }).addClass("rippleEffect");
-}
+//   $('body').append('<div class="modal"> </div>')
+//   .css({
+//     height: 0,
+//     width: 0,
+//     top: x,
+//     left: y,
+//     display: none
+//   })
+  // $(".ripple").css({
+  //   width: buttonWidth,
+  //   height: buttonHeight,
+  //   top: y + 'px',
+  //   left: x + 'px'
+  // }).addClass("rippleEffect");
+// }
 
-const addTech = (event, obj) => {
+const addTech = (obj) => {
   $('body').append('<div class="blurb"> </div>');
   $('.blurb').append('<div class="verbage"> <div>');
   $('.blurb').append('<div class="skills"> </div>')
@@ -128,15 +131,13 @@ const addTech = (event, obj) => {
   });
 };
 
-const addDesign = (event, obj) => {
+const addDesign = (obj) => {
   $('body').append('<div class="blurb"> </div>');
   $('.blurb').append('<div class="verbage"> <div>');
   $('.blurb').append('<div class="skills"> </div>')
   $('.verbage').append(`<h4 class="head"> ${obj.head}
-
-                  <span class="time"> ${obj.time} </span>
-
-               </h4>`);
+                          <span class="time"> ${obj.time} </span>
+                        </h4>`);
   $('.verbage').append(`<p class="desc"> ${obj.desc} </p>`)
   $('.blurb').append(`<img src="./images/skills/whiteX.png"class="close"/>`)
   $('.verbage').append('<div class="skills"> </div>');
@@ -191,29 +192,38 @@ $("div").click(function (e) {
 });
 
 
+
+
+
+
 $('#filfil').on('click', function(event){
   $('.blurb').remove();
-  addDesign(event, info.filfil)
+  // createBlurb(event);
+  setTimeout(addDesign(info.filfil), 500)
   console.log("filfil showing");
 });
 $('#ga').on('click', function(event){
   $('.blurb').remove();
-  addTech(event, info.ga)
+  // createBlurb(event);
+  setTimeout(addTech(info.ga), 500)
   console.log("ga showing");
 });
 $('#gsdo').on('click', function(event){
   $('.blurb').remove();
-  addDesign(event, info.gsdo);
+  // createBlurb(event);
+  setTimeout(addDesign(info.gsdo), 500);
   console.log("gsdo showing");
 });
 $('#nols').on('click', function(event){
   $('.blurb').remove();
-  addDesign(event, info.nols)
+  // createBlurb(event);
+  setTimeout(addDesign(info.nols), 500)
   console.log("nols showing");
 });
 $('#aboutme').on('click', function(event){
   $('.blurb').remove();
-  aboutme.show();
+  // createBlurb(event);
+  setTimeout(aboutme.show(), 500);
   console.log("aboutme showing");
 });
 

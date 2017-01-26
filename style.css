@@ -154,6 +154,31 @@ img.skill{
     animation: rippleDrop .6s linear;
 }
 
+
+.modal{
+  animation: modal 0.5s;
+  animation-direction: alternate;
+}
+
+@keyframes modal {
+  0%{
+    height: 0;
+    width: 0;
+  }
+  10%{
+    height: 5%;
+    width: 5%;
+  }
+  20%{
+    height: 10%;
+    width:10%;
+  }
+  100%{
+    height: 80%;
+    width: 80%;
+  }
+}
+
 @keyframes rippleDrop {
   100% {
     transform: scale(2);
