@@ -4,11 +4,13 @@ body{
   height: 800px;
 }
 #contact{
-  position: absolute;
-  left: 41%;
-  top: 8%;
+  text-align: center;
+  // left: 39%;
+  position: relative;
+  top: 10%;
 }
 h6, h6 a{
+  font: 20px serif;
   display: inline-block;
   text-align: right;
   color: white;
