@@ -110,7 +110,22 @@ $(document).ready(function(){
     me:{
       head:"Malik Wormsby",
       time:"a.k.a Kiba Gateaux",
-      desc:`I am awesome`,
+      desc:`The son of a designer and engineer, I learned both sides of
+            the science-art spectrum from an early age.
+            Through my love of challenges and creative problem solving,
+            I have focused my software engineering and experience design
+            to create interactive, fun web applications for industries
+            ranging from fashion to tech.
+            <br> <br>
+            In addition, with my leadership experience in the states
+            and abroad I excel at decision making, communication,
+            and team building skills that brings cohesion to my teams.
+            Highly driven and motivating leader and member of any team
+            that knows how to foster teamwork and cooperation from everyone
+            while utilizing each individuals talents for the appropriate job.
+            I am eager to learn anything from anyone who is willing to teach
+            or through studying on my own.
+            No challenge is beyond me so long as I have proper preparation.`,
       projects: projects
     }
   }
