@@ -10,17 +10,49 @@ $(document).ready(function(){
 
   console.log("script loaded");
   const skillImages = [
-                        "./images/skills/nodejs.jpg",
+                        "./images/skills/nodejs.png",
                         "./images/skills/postgres.png",
                         "./images/skills/react.png",
-                        "./images/skills/ruby.png",
                         "./images/skills/RubyonRails.png",
                         "./images/skills/reactNative.png",
                         "./images/skills/materialUI.png",
+                        "./images/skills/JS.png"
                       ]
-  const [nodejs, postgres, react, ruby, RubyonRails, native, materialUI] = skillImages
+  const [nodejs, postgres, react, RubyonRails, native, materialUI, JS] = skillImages
 
-
+  const projects = [
+    {
+      head: 'Telescope',
+      site: "https://dry-hollows-37710.herokuapp.com/login",
+      desc: `A game based on Hot or Not for your narcissistic self.
+             Never know which picture to post to Facebook or Instagram?
+             Use Telescope to have your pictures voted on so you know
+             which one to post and get the most likes.
+             You upload the photos of yourself you want voted on to Imgur
+             and we pull them using Imgur's API.
+             View your profile to see your most liked and post it straight away.`,
+      skills: [RubyonRails, postgres, materialUI]
+    },
+    {
+      head: 'Kireiki',
+      site: "https://github.com/kibagateaux/KiReiKi-Native",
+      time: '1 week project',
+      desc: `Using React Native and Rails API to build a mobile app
+             centered on mens fashion. An adaption of Reddit, you can
+             create communities based on topics you are passionate about
+             from favorite designers to how you like your jeans cut.`,
+      skills: [native, RubyonRails, postgres, JS, materialUI]
+    },
+    {
+      head: 'Manifest-Millenials',
+      site: "https://manifestmillenials.herokuapp.com",
+      desc: `Social media platform for college students interested in business,
+             finance, design, and technology. Schminop uses news APIs to supply
+             information and topics for conversation on the forum.
+             Designed, built, managed, and deployed to Heroku by myself.`,
+      skills: [nodejs, postgres, JS]
+    }
+  ]
   const info = {
     filfil:{
       head:"Brand Strategist & Executive Account Manager",
@@ -43,7 +75,8 @@ $(document).ready(function(){
              <br> <br>
              Every week we studied a new technology and built an app surrounding it. My favorites were React and
              Ruby on Rails for how complex yet elegant they operate and the time they free up to finesse more interesting aspects of a project.`,
-      skills:[nodejs, postgres, react, ruby, RubyonRails, native, materialUI]
+      skills:[nodejs, postgres, react, RubyonRails, native, materialUI],
+      projects: projects
     },
     gsdo:{
       head:"Strategy Design Intern",
@@ -57,20 +90,16 @@ $(document).ready(function(){
     nols:{
       head:"Student Leader",
       time:"January 2015 - April 2015, August 2012",
-      desc: "",
+      desc: "Intense leadership, environmental, and wilderness educational course. ",
       skills: ["Team leadership", "first-aid & wilderness skills", "problem solving"]
     },
-    schminop:{
-      head: "Schminop",
-      time: "1 week sprint",
-      desc: `Social media platform for college students interested in business,
-             finance, design, and technology. Schminop uses news APIs to supply
-             information and topics for conversation on the forum.
-             Designed, built, and managed by myself`,
-      skills: [nodejs, postgres]
+    me:{
+      head:"Malik Wormsby",
+      time:"a.k.a Kiba Gateaux",
+      desc:`I am awesome`,
+      projects: projects
     }
-  };
-
+  }
 
   const classes = [$('.blurb'),
                    $('.filfil'),
@@ -111,7 +140,6 @@ const [blurb, filfil, ga, gsdo, nols, schminop, aboutme, close] = classes;
 const addTech = (obj) => {
   $('body').append('<div class="blurb"> </div>');
   $('.blurb').append('<div class="verbage"> <div>');
-  $('.blurb').append('<div class="skills"> </div>')
   $('.verbage').append(`<h4 class="head">
                           ${obj.head}
                           <span class="time"> ${obj.time} </span>
@@ -120,9 +148,22 @@ const addTech = (obj) => {
   $('.blurb').append(`<img src="./images/skills/whiteX.png"class="close"/>`)
 
 
-  obj.skills.forEach(function(skill){
-      $('.skills').append(`<img src="${skill}" class="skill"/>`);
-  });
+  // obj.skills.forEach(function(skill){
+  //     $('.skills').append(`<img src="${skill}" class="skill"/>`);
+  // });
+  obj.projects.forEach((project) => {
+    $('.verbage').append(`<div id=${project.head} class="project-name">
+                            <a href=${project.site} target="_blank">
+                              ${project.head}
+                            </a>
+                          </div>`)
+    console.log($(`#${project.head}`))
+    $(`#${project.head}`).append(`<p class="desc"> ${project.desc} </p>`)
+    $(`#${project.head}`).append('<div class="skills"> </div>')
+    project.skills.forEach((skill) => {
+      $(`#${project.head} .skills`).append(`<img src=${skill} class="skill">`)
+    })
+  })
   $('.close').on('click', function(e){
     console.log('d')
     console.log(e);
@@ -159,33 +200,32 @@ $("div").click(function (e) {
 
   // Remove any old one
   $(".ripple").remove();
-
   // Setup
   let posX = $(this).offset().left,
       posY = $(this).offset().top,
-      buttonWidth = $(this).width(),
-      buttonHeight =  $(this).height();
+      divWidth = $(this).width(),
+      divHeight =  $(this).height();
 
   // Add the element
   $(this).prepend("<span class='ripple'></span>");
 
 
  // Make it round!
-  if(buttonWidth >= buttonHeight) {
-    buttonHeight = buttonWidth;
+  if(divWidth >= divHeight) {
+    divHeight = divWidth;
   } else {
-    buttonWidth = buttonHeight;
+    divWidth = divHeight;
   }
 
   // Get the center of the element
-  let x = e.pageX - posX - buttonWidth / 2;
-  let y = e.pageY - posY - buttonHeight / 2;
+  let x = e.pageX - posX - divWidth / 2;
+  let y = e.pageY - posY - divHeight / 2;
 
 
   // Add the ripples CSS and start the animation
   $(".ripple").css({
-    width: buttonWidth,
-    height: buttonHeight,
+    width: divWidth,
+    height: divHeight,
     top: y + 'px',
     left: x + 'px'
   }).addClass("rippleEffect");
@@ -199,31 +239,31 @@ $("div").click(function (e) {
 $('#filfil').on('click', function(event){
   $('.blurb').remove();
   // createBlurb(event);
-  setTimeout(addDesign(info.filfil), 500)
+  addDesign(info.filfil)
   console.log("filfil showing");
 });
 $('#ga').on('click', function(event){
   $('.blurb').remove();
   // createBlurb(event);
-  setTimeout(addTech(info.ga), 500)
+  addTech(info.ga)
   console.log("ga showing");
 });
 $('#gsdo').on('click', function(event){
   $('.blurb').remove();
   // createBlurb(event);
-  setTimeout(addDesign(info.gsdo), 500);
+  addDesign(info.gsdo)
   console.log("gsdo showing");
 });
 $('#nols').on('click', function(event){
   $('.blurb').remove();
   // createBlurb(event);
-  setTimeout(addDesign(info.nols), 500)
+  addDesign(info.nols)
   console.log("nols showing");
 });
 $('#aboutme').on('click', function(event){
   $('.blurb').remove();
   // createBlurb(event);
-  setTimeout(aboutme.show(), 500);
+  addTech(info.me)
   console.log("aboutme showing");
 });
 
