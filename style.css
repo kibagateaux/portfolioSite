@@ -72,7 +72,7 @@ body{
 
 .close{
   color: black;
-  // box-shadow: 0 0 20px black;
+  box-shadow: 0 0 20px black;
   border-style: none;
   height: 30px;
   width: 30px;
@@ -120,6 +120,7 @@ div.verbage .head{
 }
 
 .project-name a{
+  color: red;
   text-decoration: none;
   font-size: 1.2em;
 }

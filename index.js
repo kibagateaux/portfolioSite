@@ -41,7 +41,7 @@ $(document).ready(function(){
              centered on mens fashion. An adaption of Reddit, you can
              create communities based on topics you are passionate about
              from favorite designers to how you like your jeans cut.`,
-      skills: [native, RubyonRails, postgres, JS, materialUI]
+      skills: [native, JS, RubyonRails, postgres, materialUI]
     },
     {
       head: 'Manifest-Millenials',
@@ -50,7 +50,7 @@ $(document).ready(function(){
              finance, design, and technology. Schminop uses news APIs to supply
              information and topics for conversation on the forum.
              Designed, built, managed, and deployed to Heroku by myself.`,
-      skills: [nodejs, postgres, JS]
+      skills: [nodejs, JS, postgres]
     }
   ]
   const info = {
@@ -88,9 +88,23 @@ $(document).ready(function(){
     skills:["Strategic foresight & design" , "ethnographic research" , "international product design"]
     },
     nols:{
-      head:"Student Leader",
+      head:"Student Wilderness Leader",
       time:"January 2015 - April 2015, August 2012",
-      desc: "Intense leadership, environmental, and wilderness educational course. ",
+      desc: `Intense leadership, environmental, and wilderness educational courses taught through
+             experiential learning and daily lessons.
+             Techical and interpersonal skills were my primary focus on my courses.
+             Inter-personal skills includes leadership, comunication, empathy, decision-making,
+             story tellng, and "Expidition Behavior".
+             <br> <br>
+             Technical skills varied depending on the course.
+             Technical skills on my mountaineering course mainly comprised
+             glacial traversing in rope teams, rock/ice climbing, and navigation.
+             My second course was a full semester in New Zealand,
+             split into three sections of sea kayaking, hiking, and sailing.
+             Technical skills I learned here included nautical navigation,
+             EMT first-aid, and sailing maneuvers.
+
+             `,
       skills: ["Team leadership", "first-aid & wilderness skills", "problem solving"]
     },
     me:{
