@@ -3,6 +3,12 @@ body{
   background: url("./images/planets/background.jpg");
   height: 800px;
 }
+.icon{
+  height: 50px;
+  width: 50px;
+  position: relative;
+  margin: 0px 5px 10x 5px;
+}
 #contact{
   text-align: center;
   // left: 39%;
@@ -115,11 +121,6 @@ h6, h6 a{
 .time{
   font-size: 80%;
 }
-
-/*div.blurb{
-  padding: 20px;
-  font-size: 100%;
-}*/
 
 div.verbage .head{
   font-weight: 700;
