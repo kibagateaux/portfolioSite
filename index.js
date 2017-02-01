@@ -78,8 +78,7 @@ $(document).ready(function(){
              <br> <br>
              Every week we studied a new technology and built an app surrounding it. My favorites were React and
              Ruby on Rails for how complex yet elegant they operate and the time they free up to finesse more interesting aspects of a project.`,
-      skills:[nodejs, postgres, react, RubyonRails, native, materialUI],
-      projects: projects
+      skills:[nodejs, postgres, react, RubyonRails, native, materialUI]
     },
     gsdo:{
       head:"Strategy Design Intern",
@@ -128,8 +127,7 @@ $(document).ready(function(){
             while utilizing each individuals talents for the appropriate job.
             I am eager to learn anything from anyone who is willing to teach
             or through studying on my own.
-            No challenge is beyond me so long as I have proper preparation.`,
-      projects: projects
+            No challenge is beyond me so long as I have proper preparation.`
     }
   }
 
@@ -169,20 +167,6 @@ const [blurb, filfil, ga, gsdo, nols, schminop, aboutme, close] = classes;
   // }).addClass("rippleEffect");
 // }
 
-const addBlurb = () => {
-
-  $('.blurb').remove()
-
-  $('body').append('<div class="blurb"> </div>');
-  $('.blurb').append('<div class="verbage"><div>');
-  $('.verbage').append(`<h4 class="head"></h4>`);
-  $('.blurb').append(`<img src="./images/icons/whiteX.png"class="close"/>`)
-
-  $('.close').on('click', () => $('.blurb').remove() )
-
-}
-
-
 const addProjects = () => {
   projects.forEach((project) => {
       $('.verbage').append(`<div id=${project.head} class="project-name">
@@ -197,66 +181,6 @@ const addProjects = () => {
       })
     })
 }
-
-
-const addTech = (obj) => {
-  $('body').append('<div class="blurb"> </div>');
-  $('.blurb').append('<div class="verbage"> <div>');
-  $('.verbage').append(`<h4 class="head">
-                          ${obj.head}
-                          <span class="time"> ${obj.time} </span>
-                        </h4>`);
-  $('.verbage').append(`<p class="desc"> ${obj.desc} </p>`)
-  $('.blurb').append(`<img src="./images/icons/whiteX.png"class="close"/>`)
-
-
-  // obj.skills.forEach(function(skill){
-  //     $('.skills').append(`<img src="${skill}" class="skill"/>`);
-  // });
-  obj.projects.forEach((project) => {
-    $('.verbage').append(`<div id=${project.head} class="project-name">
-                            <a href=${project.site} target="_blank">
-                              ${project.head}
-                            </a>
-                          </div>`)
-    console.log($(`#${project.head}`))
-    $(`#${project.head}`).append(`<p class="desc"> ${project.desc} </p>`)
-    $(`#${project.head}`).append('<div class="skills"> </div>')
-    project.skills.forEach((skill) => {
-      $(`#${project.head} .skills`).append(`<img src=${skill} class="skill">`)
-    })
-  })
-  $('.close').on('click', function(e){
-    console.log('d')
-    console.log(e);
-    $('.blurb').remove();
-    console.log('close clicked');
-  });
-};
-
-const addDesign = (obj) => {
-  $('body').append('<div class="blurb"> </div>');
-  $('.blurb').append('<div class="verbage"> <div>');
-  $('.blurb').append('<div class="skills"> </div>')
-  $('.verbage').append(`<h4 class="head"> ${obj.head}
-                          <span class="time"> ${obj.time} </span>
-                        </h4>`);
-  $('.verbage').append(`<p class="desc"> ${obj.desc} </p>`)
-  $('.blurb').append(`<img src="./images/icons/whiteX.png"class="close"/>`)
-  $('.verbage').append('<div class="skills"> </div>');
-
-  obj.skills.forEach(function(skill){
-
-    $('skills').append(`<li class="skill">${skill}</li>`);
-  })
-  $('.close').on('click', function(e){
-    console.log('d')
-    console.log(e);
-    $('.blurb').remove();
-    console.log('close clicked');
-  });
-};
-
 
 $("div").click(function (e) {
 
@@ -294,57 +218,54 @@ $("div").click(function (e) {
 });
 
 
+const addBlurb = (obj) => {
+
+  $('.blurb').remove()
+
+  $('body').append('<div class="blurb"> </div>');
+  $('.blurb').append('<div class="verbage"><div>');
+  $('.verbage').append(`<h4 class="head"> ${obj.head}
+                          <span class="time"> ${obj.time} </span>
+                        </h4>`);
+  $('.verbage').append(`<p class="desc"> ${obj.desc} </p>`)
+
+  $('.blurb').append(`<img src="./images/icons/whiteX.png"class="close"/>`)
+
+  $('.close').on('click', () => $('.blurb').remove() )
+}
+
 
 $('#projects').on('click', () => {
-  addBlurb();
-  addProjects();
+  addBlurb(obj);
 })
 
 
 $('#filfil').on('click', function(event){
-  console.log(event);
-   console.log(event.currentTarget.attributes.id)
-  console.log(event.currentTarget.attributes[1].nodeValue)
-  $('.blurb').remove();
-  // createBlurb(event);
-  addDesign(info.filfil)
-  console.log("filfil showing");
+  addBlurb(info.filfil)
 });
 $('#ga').on('click', function(event){
-  $('.blurb').remove();
-  console.log(event.currentTarget.attributes[1].nodeValue)
-  // createBlurb(event);
-  console.log(event)
-  addTech(info.ga)
-  console.log("ga showing");
+  addBlurb(info.ga);
+  addProjects();
 });
+
+
 $('#gsdo').on('click', function(event){
-  $('.blurb').remove();
-  console.log(event)
-  // createBlurb(event);
-  console.log(event.currentTarget.attributes[1].nodeValue)
-  addDesign(info.gsdo)
-  console.log("gsdo showing");
+  addBlurb(info.gsdo)
+  // addVerbage(info.gsdo)
 });
+
+
 $('#nols').on('click', function(event){
-  $('.blurb').remove();
-  // createBlurb(event);
-  console.log(event)
-  addDesign(info.nols)
-  console.log(event.currentTarget.attributes[1].nodeValue)
-  console.log("nols showing");
+  addBlurb(info.nols)
 });
 $('#aboutme').on('click', function(event){
-  $('.blurb').remove();
-  // createBlurb(event);
-  console.log(event.currentTarget.attributes[1].nodeValue)
-  console.log(event.currentTarget.attributes.id)
-  addTech(info.me)
-  console.log("aboutme showing");
+  addBlurb(info.me)
 });
 
 // $('.planet').on('click', (event) => {
+//   let id = event.currentTarget.attributes.id.split(\")
 //   console.log(event.currentTarget.attributes.id)
+//   addBlurb(info[event.currentTarget.attributes.id])
 // })
 
 })
