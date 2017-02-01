@@ -3,6 +3,9 @@ body{
   background: url("./images/planets/background.jpg");
   height: 800px;
 }
+a{
+  margin: 20px auto;
+}
 .icon{
   height: 50px;
   width: 50px;
