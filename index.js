@@ -1,14 +1,7 @@
 $(document).ready(function(){
 
-  const backgroundImages = [
-      './images/space/galaxy.png',
-      './images/space/space-uterus.jpeg',
-      './images/space/space.jpeg',
-      './images/space/blurbablubadoongonk.jpeg',
-      './images/space/trippy-sauron.jpg'
-  ];
-
   console.log("script loaded");
+
   const skillImages = [
                         "./images/skills/nodejs.png",
                         "./images/skills/postgres.png",
@@ -78,7 +71,6 @@ $(document).ready(function(){
              <br> <br>
              Every week we studied a new technology and built an app surrounding it. My favorites were React and
              Ruby on Rails for how complex yet elegant they operate and the time they free up to finesse more interesting aspects of a project.`,
-      skills:[nodejs, postgres, react, RubyonRails, native, materialUI]
     },
     gsdo:{
       head:"Strategy Design Intern",
@@ -128,6 +120,16 @@ $(document).ready(function(){
             I am eager to learn anything from anyone who is willing to teach
             or through studying on my own.
             No challenge is beyond me so long as I have proper preparation.`
+    },
+    philosophy:{
+      head: "Deployed Projects",
+      time: "Built And Designed By Malik Wormsby",
+      desc: `When I am planning a project I go through a process. What is the purpose of this product?
+             Does it solve a significant pproblem? Is there anything like it on the market already?
+             This is just solidify the idea before going into the design and building phases.
+             <br> <br> I love design thinking and material design principles and as I learn both,
+             I incorporate them more and more into my products. I focus on web development but I have been branching into mobile
+             with React Native as you can see with my "Kireiki" project.`
     }
   }
 
@@ -182,6 +184,8 @@ const addProjects = () => {
     })
 }
 
+
+/* http://stackoverflow.com/questions/30074246/how-to-create-ripple-effect-on-click-material-design */
 $("div").click(function (e) {
 
   // Remove any old one
@@ -219,7 +223,8 @@ $("div").click(function (e) {
 
 
 const addBlurb = (obj) => {
-
+  console.log("adding blurb for", obj.head)
+  console.log(obj)
   $('.blurb').remove()
 
   $('body').append('<div class="blurb"> </div>');
@@ -236,36 +241,16 @@ const addBlurb = (obj) => {
 
 
 $('#projects').on('click', () => {
-  addBlurb(obj);
+  addBlurb(info.philosophy)
+  addProjects();
 })
 
+$('.planet').on('click', (event) => {
+  // let id = event.currentTarget.attributes.id.match(/^["].+["]$/)
 
-$('#filfil').on('click', function(event){
-  addBlurb(info.filfil)
-});
-$('#ga').on('click', function(event){
-  addBlurb(info.ga);
-  addProjects();
-});
-
-
-$('#gsdo').on('click', function(event){
-  addBlurb(info.gsdo)
-  // addVerbage(info.gsdo)
-});
-
-
-$('#nols').on('click', function(event){
-  addBlurb(info.nols)
-});
-$('#aboutme').on('click', function(event){
-  addBlurb(info.me)
-});
-
-// $('.planet').on('click', (event) => {
-//   let id = event.currentTarget.attributes.id.split(\")
-//   console.log(event.currentTarget.attributes.id)
-//   addBlurb(info[event.currentTarget.attributes.id])
-// })
+  let id = event.currentTarget.attributes.id.nodeValue.split('"')[0]
+  addBlurb(info[id])
+  if(id === "ga") addProjects();
+})
 
 })
